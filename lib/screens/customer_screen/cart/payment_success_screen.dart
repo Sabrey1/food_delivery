@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_order/controllers/payment_success_controller.dart';
+import 'package:food_order/controllers/user_controller/payment_success_controller.dart';
 import 'package:get/get.dart';
 
 class PaymentSuccessScreen extends StatelessWidget {

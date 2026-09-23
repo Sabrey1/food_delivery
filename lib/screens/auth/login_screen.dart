@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_order/controllers/login_controller.dart';
+import 'package:food_order/controllers/auth_controller/login_controller.dart';
 import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -29,13 +29,13 @@ class LoginScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Username"),
+                            Text("Email"),
                             SizedBox(height: 5,),
                             TextField(
                               onChanged: (val)=> controller.email.value = val,
                               decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.person),
-                                labelText: "Enter your username",
+                                labelText: "Enter your email",
                                 border: OutlineInputBorder()
                               ),
                             ),

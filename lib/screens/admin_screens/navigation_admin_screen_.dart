@@ -9,8 +9,9 @@ final NavigationController controller = Get.find();
   Widget build(BuildContext context) {
     return ValueListenableBuilder(valueListenable: controller.selectedIndexNotifier,
       builder: (context, selectedPage, child) {
-        return NavigationBar(destinations: 
-        [
+        return NavigationBar(
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,  
+        destinations: [
           NavigationDestination(
             icon: Icon(Icons.home),
             label: "Home"
@@ -20,13 +21,13 @@ final NavigationController controller = Get.find();
             label: "Orders"
           ),
           NavigationDestination(
-            icon: Icon(Icons.shopping_cart),
-            label: "Product"
+            icon: Icon(Icons.monitor_heart_sharp),
+            label: "Manage"
           ),
           
           NavigationDestination(
-            icon: Icon(Icons.category_outlined),
-            label: "Category"
+            icon: Icon(Icons.person),
+            label: "Profile"
           ),
         ],
         onDestinationSelected: (int value) {

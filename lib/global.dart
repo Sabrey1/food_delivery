@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:food_order/constants/constant.dart';
 import 'package:food_order/constants/enum.dart';
 import 'package:food_order/services/api_service.dart';
-import 'package:food_order/services/app_service.dart';
 import 'package:food_order/services/storage_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_order/controllers/check_out_controller.dart';
+import 'package:food_order/controllers/user_controller/check_out_controller.dart';
 import 'package:food_order/screens/customer_screen/cart/widget/card_input_info_customer_widget.dart';
 import 'package:food_order/screens/customer_screen/cart/widget/card_total_widget.dart';
 import 'package:food_order/screens/customer_screen/cart/widget/order_summary_widget.dart';

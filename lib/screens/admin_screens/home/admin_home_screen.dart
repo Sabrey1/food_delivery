@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class AdminHomeScreen extends StatelessWidget {
   AdminHomeScreen({super.key});
 
-  final controller = Get.find<HomeController>();
+  final controller = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {

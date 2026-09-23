@@ -1,8 +1,7 @@
 class UserModel{
   String? id;
-  String name;
+  String username;
   String email;
-  String password;
   String? phone;
   String? photo;
   bool isActive = true;
@@ -11,9 +10,8 @@ class UserModel{
 
   UserModel({
     this.id,
-    required this.name,
+    required this.username,
     required this.email,
-    required this.password,
     this.phone,
     this.photo,
     this.isActive = true,
@@ -24,9 +22,8 @@ class UserModel{
   Map<String, dynamic> toMap(){
     return {
       'id': id,
-      'name': name,
+      'username': username,
       'email': email,
-      'password': password,
       'phone': phone,
       'photo': photo,
       'isActive': isActive,
@@ -38,9 +35,8 @@ class UserModel{
   factory UserModel.fromMap(Map<String, dynamic> map){
     return UserModel(
       id: map['id'],
-      name: map['name'],
+      username: map['username'],
       email: map['email'],
-      password: map['password'],
       phone: map['phone'],
       photo: map['photo'],
       isActive: map['isActive'],

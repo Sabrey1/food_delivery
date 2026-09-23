@@ -1,4 +1,4 @@
-import 'package:food_order/controllers/product_controller.dart';
+import 'package:food_order/controllers/admin_controller/product_controller.dart';
 import 'package:food_order/routes/app_route.dart';
 import 'package:get/get.dart';
 

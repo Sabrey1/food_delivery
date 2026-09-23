@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_order/controllers/register_controller.dart';
+import 'package:food_order/controllers/auth_controller/register_controller.dart';
 import 'package:get/get.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -35,40 +35,47 @@ final controller = Get.put(RegisterController());
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                                Text("Full Name"),
-                          SizedBox(height: 5,),
-                          TextField(
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.person),
-                              labelText: "name@example.com",
-                              border: OutlineInputBorder()
-                            ),
-                          ),
-                          SizedBox(height:10,),
-                          Text("Phone Number"),
-                          SizedBox(height: 5,),
-                          TextField(
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.phone),
-                              labelText: "(+855) 123 456 789",
-                              border: OutlineInputBorder()
-                            ),
-                          ),
-                          SizedBox(height:10,),
-                          Text("Email"),
-                          SizedBox(height: 5,),
-                          TextField(
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.email),
-                              labelText: "name@example.com",
-                              border: OutlineInputBorder()
-                            ),
-                          ),
-                          SizedBox(height:10,),
+
+                              Text("Email"),
+                              SizedBox(height: 5,),
+                              TextField(
+                                controller: controller.emailController,
+                                decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.email),
+                                  labelText: "name@example.com",
+                                  border: OutlineInputBorder()
+                                ),
+                              ),
+                               SizedBox(height:10,),
+                                Text("Username"),
+                                SizedBox(height: 5,),
+                                TextField(
+                                  controller: controller.usernameController,
+                                  decoration: InputDecoration(
+                                    prefixIcon: Icon(Icons.person),
+                                    labelText: "Example",
+                                    border: OutlineInputBorder()
+                                  ),
+                                ),
+                                SizedBox(height:10,),
+                                Text("Phone Number"),
+                                SizedBox(height: 5,),
+                                TextField(
+                                  controller: controller.phoneController,
+                                  decoration: InputDecoration(
+                                    prefixIcon: Icon(Icons.phone),
+                                    labelText: "(+855) 123 456 789",
+                                    border: OutlineInputBorder()
+                                  ),
+                                ),
+                                SizedBox(height:10,),
+                          
 
                           Text("Password"),
                           SizedBox(height: 5,),
                           TextField(
+                            obscureText: true,
+                            controller: controller.passwordController,
                             decoration: InputDecoration(
                               prefixIcon: Icon(Icons.lock),
                               suffixIcon: Icon(Icons.remove_red_eye),
@@ -81,10 +88,12 @@ final controller = Get.put(RegisterController());
                           Text("Confirm Password"),
                           SizedBox(height: 5,),
                           TextField(
+                            controller: controller.confirmPasswordController,
+                            obscureText: true,
                             decoration: InputDecoration(
                               prefixIcon: Icon(Icons.lock),
                               suffixIcon: Icon(Icons.remove_red_eye),
-                              labelText: "Enter your password",
+                              labelText: "Confirm your password",
                               border: OutlineInputBorder()
                             ),
                           ),
@@ -100,7 +109,20 @@ final controller = Get.put(RegisterController());
                             width: double.infinity,
                             child: ElevatedButton(
                               onPressed: (){
-                                controller.onRegisterAccount();
+                                if (controller.passwordController.text !=
+                                    controller.confirmPasswordController.text) {
+                                  Get.snackbar(
+                                    'Error',
+                                    'Passwords do not match.',
+                                  );
+                                  return;
+                                }
+                                controller.onRegisterAccount(
+                                  controller.usernameController.text,
+                                  controller.emailController.text,
+                                  controller.passwordController.text,
+                                  controller.phoneController.text
+                                );
                               },
                               child: Text("Register", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),)
                             ),
